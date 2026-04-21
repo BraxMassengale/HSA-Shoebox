@@ -67,19 +67,7 @@ struct ReceiptListView: View {
 
     var body: some View {
         List(selection: $selectedReceiptIDs) {
-            Section {
-                Picker("Filter", selection: $filterScope) {
-                    ForEach(ReceiptFilterScope.allCases) { scope in
-                        Text(scope.title).tag(scope)
-                    }
-                }
-                .pickerStyle(.segmented)
-                .accessibilityLabel("Receipt filter")
-            }
-
-            if filteredReceipts.isEmpty {
-                emptyState
-            } else {
+            if filteredReceipts.isEmpty == false {
                 ForEach(groupedReceipts, id: \.0) { month, monthReceipts in
                     Section(Formatters.monthYearString(for: month)) {
                         ForEach(monthReceipts) { receipt in
@@ -111,11 +99,25 @@ struct ReceiptListView: View {
                 }
             }
         }
+        .listStyle(.plain)
+        .scrollContentBackground(.hidden)
+        .background(Color(.systemGroupedBackground))
         .navigationTitle(Strings.App.receipts)
+        .navigationBarTitleDisplayMode(.inline)
         .searchable(text: $searchText, prompt: Strings.ReceiptList.searchPrompt)
-        .safeAreaInset(edge: .top) {
-            TotalHeaderCard(total: unreimbursedTotal, currencyCode: currencyCode)
-                .background(.bar)
+        .overlay {
+            if filteredReceipts.isEmpty {
+                emptyState
+                    .padding(.horizontal, 24)
+                    .padding(.top, 160)
+            }
+        }
+        .safeAreaInset(edge: .top, spacing: 8) {
+            VStack(spacing: 10) {
+                TotalHeaderCard(total: unreimbursedTotal, currencyCode: currencyCode)
+                filterBar
+            }
+            .background(.bar)
         }
         .toolbar {
             ToolbarItem(placement: .topBarLeading) {
@@ -183,6 +185,20 @@ struct ReceiptListView: View {
         } message: { _ in
             Text(Strings.ReceiptList.deleteConfirmationMessage)
         }
+    }
+
+    private var filterBar: some View {
+        Picker("Filter", selection: $filterScope) {
+            ForEach(ReceiptFilterScope.allCases) { scope in
+                Text(scope.title).tag(scope)
+            }
+        }
+        .pickerStyle(.segmented)
+        .padding(.horizontal, 16)
+        .padding(.vertical, 10)
+        .background(.thinMaterial, in: RoundedRectangle(cornerRadius: 20, style: .continuous))
+        .padding(.horizontal)
+        .accessibilityLabel("Receipt filter")
     }
 
     @ViewBuilder

@@ -53,11 +53,12 @@ struct TotalHeaderCard: View {
             }
         }
         .frame(maxWidth: .infinity, alignment: .leading)
-        .padding()
+        .padding(.horizontal, 18)
+        .padding(.vertical, 16)
         .background(.thinMaterial, in: RoundedRectangle(cornerRadius: 22, style: .continuous))
         .padding(.horizontal)
-        .padding(.top, 6)
-        .padding(.bottom, 10)
+        .padding(.top, 4)
+        .padding(.bottom, 2)
         .accessibilityElement(children: .combine)
     }
 }

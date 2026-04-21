@@ -21,7 +21,6 @@ struct ReceiptPagePagerView: View {
                 .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
                 .padding(.horizontal)
                 .padding(.bottom)
-                .containerRelativeFrame(.vertical)
                 .accessibilityLabel("Receipt page \(index + 1)")
             }
         }

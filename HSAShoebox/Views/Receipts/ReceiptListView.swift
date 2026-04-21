@@ -134,19 +134,20 @@ struct ReceiptListView: View {
                 }
             }
 
-            ToolbarItem(placement: .bottomBar) {
-                if selectedReceiptIDs.isEmpty == false {
-                    Button(Strings.ReceiptList.createBundle) {
-                        let selected = receipts.filter { selectedReceiptIDs.contains($0.id) && $0.reimbursement == nil }
-                        if selected.isEmpty == false {
-                            reimbursementRequest = ReimbursementRequest(receipts: selected)
-                        }
-                    }
-                }
-            }
-
             ToolbarItem(placement: .topBarTrailing) {
                 EditButton()
+            }
+        }
+        .safeAreaInset(edge: .bottom) {
+            if selectedReceiptIDs.isEmpty == false {
+                Button(Strings.ReceiptList.createBundle) {
+                    let selected = receipts.filter { selectedReceiptIDs.contains($0.id) && $0.reimbursement == nil }
+                    if selected.isEmpty == false {
+                        reimbursementRequest = ReimbursementRequest(receipts: selected)
+                    }
+                }
+                .buttonStyle(.borderedProminent)
+                .padding()
             }
         }
         .sheet(isPresented: $showScanSheet) {

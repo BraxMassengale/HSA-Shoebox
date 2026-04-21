@@ -48,8 +48,8 @@ struct TotalHeaderCard: View {
                 .foregroundStyle(.secondary)
 
             ViewThatFits(in: .horizontal) {
-                CurrencyAmountText(amount: total, currencyCode: currencyCode, font: .system(size: 34, weight: .bold, design: .rounded))
-                CurrencyAmountText(amount: total, currencyCode: currencyCode, font: .title.bold())
+                CurrencyAmountText(amount: total, currencyCode: currencyCode, font: .system(size: 28, weight: .bold, design: .rounded))
+                CurrencyAmountText(amount: total, currencyCode: currencyCode, font: .title3.bold())
             }
         }
         .frame(maxWidth: .infinity, alignment: .leading)

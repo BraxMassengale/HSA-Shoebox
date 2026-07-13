@@ -26,6 +26,8 @@
 	<true/>
 	<key>NSCameraUsageDescription</key>
 	<string>HSA Shoebox uses the camera to scan and archive your medical receipts.</string>
+	<key>NSFaceIDUsageDescription</key>
+	<string>HSA Shoebox uses Face ID to keep your medical receipts and reimbursement history private.</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>HSA Shoebox can save exported receipt bundles and backups to your files and photo library.</string>
 	<key>UIApplicationSceneManifest</key>

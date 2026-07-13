@@ -4,10 +4,12 @@ import SwiftUI
 struct SettingsView: View {
     @AppStorage(AppConfiguration.defaultCurrencyKey) private var defaultCurrencyCode = Locale.current.currency?.identifier ?? "USD"
     @AppStorage(AppConfiguration.defaultCategoryKey) private var defaultCategoryRawValue = ExpenseCategory.other.rawValue
+    @AppStorage(AppConfiguration.appLockEnabledKey) private var appLockEnabled = false
     @Query(sort: \Receipt.dateOfService, order: .reverse) private var receipts: [Receipt]
     @Query(sort: \Reimbursement.reimbursedDate, order: .reverse) private var reimbursements: [Reimbursement]
 
     @State private var syncMonitor = CloudKitStatusMonitor()
+    @State private var lockService = AppLockService()
     @State private var exportURL: URL?
     @State private var isExporting = false
 
@@ -31,6 +33,15 @@ struct SettingsView: View {
                         Text(category.displayName).tag(category.rawValue)
                     }
                 }
+            }
+
+            Section {
+                Toggle(Strings.Settings.appLock, isOn: appLockBinding)
+                    .disabled(!lockService.canEvaluate())
+            } header: {
+                Text(Strings.Settings.security)
+            } footer: {
+                Text(lockService.canEvaluate() ? Strings.Settings.appLockFootnote : Strings.Settings.appLockUnavailable)
             }
 
             Section {
@@ -82,6 +93,21 @@ struct SettingsView: View {
             defaultCurrencyCode
         } set: { newValue in
             defaultCurrencyCode = String(newValue.uppercased().prefix(3))
+        }
+    }
+
+    private var appLockBinding: Binding<Bool> {
+        Binding {
+            appLockEnabled
+        } set: { newValue in
+            if newValue {
+                Task {
+                    let success = await lockService.authenticate(reason: Strings.AppLock.enableReason)
+                    appLockEnabled = success
+                }
+            } else {
+                appLockEnabled = false
+            }
         }
     }
 }

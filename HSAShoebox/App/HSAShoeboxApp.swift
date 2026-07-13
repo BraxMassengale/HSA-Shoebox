@@ -18,6 +18,8 @@ enum AppConfiguration {
     static let fallbackCloudKitContainer = "iCloud.com.example.HSAShoebox"
     static let defaultCurrencyKey = "defaultCurrencyCode"
     static let defaultCategoryKey = "defaultExpenseCategory"
+    static let appLockEnabledKey = "appLockEnabled"
+    static let appLockPromptSeenKey = "appLockPromptSeen"
 
     static var cloudKitContainerIdentifier: String {
         guard

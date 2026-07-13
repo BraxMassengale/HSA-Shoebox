@@ -13,6 +13,7 @@
 		000000000000000000000104 /* Receipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000204 /* Receipt.swift */; };
 		000000000000000000000105 /* ReceiptDraft.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000205 /* ReceiptDraft.swift */; };
 		000000000000000000000106 /* Reimbursement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000206 /* Reimbursement.swift */; };
+		000000000000000000000133 /* AppLockService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000237 /* AppLockService.swift */; };
 		000000000000000000000107 /* CloudKitStatusMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000207 /* CloudKitStatusMonitor.swift */; };
 		000000000000000000000108 /* DataExportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000208 /* DataExportService.swift */; };
 		000000000000000000000109 /* OCRParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000209 /* OCRParser.swift */; };
@@ -58,6 +59,7 @@
 		000000000000000000000204 /* Receipt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Receipt.swift; sourceTree = "<group>"; };
 		000000000000000000000205 /* ReceiptDraft.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptDraft.swift; sourceTree = "<group>"; };
 		000000000000000000000206 /* Reimbursement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reimbursement.swift; sourceTree = "<group>"; };
+		000000000000000000000237 /* AppLockService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLockService.swift; sourceTree = "<group>"; };
 		000000000000000000000207 /* CloudKitStatusMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitStatusMonitor.swift; sourceTree = "<group>"; };
 		000000000000000000000208 /* DataExportService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataExportService.swift; sourceTree = "<group>"; };
 		000000000000000000000209 /* OCRParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCRParser.swift; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 		000000000000000000000307 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				000000000000000000000237 /* AppLockService.swift */,
 				000000000000000000000207 /* CloudKitStatusMonitor.swift */,
 				000000000000000000000208 /* DataExportService.swift */,
 				000000000000000000000209 /* OCRParser.swift */,
@@ -366,6 +369,7 @@
 				000000000000000000000104 /* Receipt.swift in Sources */,
 				000000000000000000000105 /* ReceiptDraft.swift in Sources */,
 				000000000000000000000106 /* Reimbursement.swift in Sources */,
+				000000000000000000000133 /* AppLockService.swift in Sources */,
 				000000000000000000000107 /* CloudKitStatusMonitor.swift in Sources */,
 				000000000000000000000108 /* DataExportService.swift in Sources */,
 				000000000000000000000109 /* OCRParser.swift in Sources */,

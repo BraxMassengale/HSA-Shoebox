@@ -74,6 +74,22 @@ enum Strings {
         static let about = "About"
         static let privacy = "All data is stored on your device and your private iCloud. No analytics, no network calls beyond iCloud sync."
         static let exportInProgress = "Preparing export..."
+        static let security = "Security"
+        static let appLock = "Require Face ID"
+        static let appLockFootnote = "Locks the app on launch and when it returns from the background. Falls back to your device passcode if biometrics fail."
+        static let appLockUnavailable = "Set up Face ID, Touch ID, or a device passcode in Settings to enable app lock."
+    }
+
+    enum AppLock {
+        static let title = "HSA Shoebox is Locked"
+        static let message = "Authenticate to view your receipts."
+        static let unlock = "Unlock"
+        static let enableReason = "Confirm to enable app lock."
+        static let unlockReason = "Unlock HSA Shoebox to view your receipts."
+        static let promptTitle = "Protect Your Receipts?"
+        static let promptMessage = "Require Face ID or your device passcode each time you open HSA Shoebox. You can change this later in Settings."
+        static let promptEnable = "Enable"
+        static let promptSkip = "Not Now"
     }
 
     enum Form {
